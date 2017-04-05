@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.ui import Select
 
 def zipcodes_list(st_items):
     # If st_items is a single zipcode string.
@@ -47,12 +48,33 @@ def enter_search_term(driver, search_term):
     try:
         searchBar = driver.wait.until(EC.presence_of_element_located(
             (By.ID, "citystatezip")))
-        button = driver.wait.until(EC.element_to_be_clickable(
-            (By.CLASS_NAME, "zsg-icon-searchglass")))
         searchBar.clear()
         time.sleep(3)
         searchBar.send_keys(search_term)
         time.sleep(3)
+        return(True)
+    except (TimeoutException, NoSuchElementException):
+        return(False)
+
+def select_num_bed_filter(driver, num_beds):
+    try:
+        dropdown = driver.wait.until(EC.element_to_be_clickable(
+            (By.ID, "beds-menu-label")))
+        dropdown.click()
+        time.sleep(3)
+        bed_selection = driver.wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//ul[@id='bed-options']/li[{}]/a".format(
+                num_beds + 1))))
+        bed_selection.click()
+        time.sleep(3)
+        return(True)
+    except (TimeoutException, NoSuchElementException):
+        return(False)
+
+def search(driver):
+    try:
+        button = driver.wait.until(EC.element_to_be_clickable(
+            (By.CLASS_NAME, "zsg-icon-searchglass")))
         button.click()
         time.sleep(3)
         return(True)
@@ -135,7 +157,11 @@ def get_street_address(soup_obj):
         street = soup_obj.find(
             "span", {"itemprop" : "streetAddress"}).get_text().strip()
     except (ValueError, AttributeError):
-        street = "NA"
+        try:
+            street = soup_obj.find(
+                "span", {"class" : "zsg-photo-card-address"}).get_text().strip()
+        except (ValueError, AttributeError):
+            street = "NA"
     if len(street) == 0 or street == "null":
         street = "NA"
     return(street)
@@ -180,7 +206,7 @@ def get_price(soup_obj, list_obj):
         # If that fails, look for price within list_obj (object "card_info").
         try:
             price = [n for n in list_obj 
-                if any(["$" in n, "K" in n, "k" in n])]:
+                if any(["$" in n, "K" in n, "k" in n])]
             if len(price) > 0:
                 price = price[0].split(" ")
                 price = [n for n in price if re.search("[0-9]", n) is not None]
@@ -196,19 +222,7 @@ def get_price(soup_obj, list_obj):
         price = "NA"
     if price is not "NA":
         # Transformations to the price string.
-        price = price.replace(",", "").replace("+", "").replace("$", "")
-        if any(["K" in price, "k" in price]):
-            price = price.lower().split("k")[0].strip()
-            price = price + "000"
-        if any(["M" in price, "m" in price]):
-            price = price.lower().split("m")[0].strip()
-            if "." not in price:
-                price = price + "000000"
-            else:
-                pricelen = len(price.split('.')[0]) + 6
-                price = price.replace('.', '')
-                diff = pricelen - len(price)
-                price = price + (diff * "0")
+        price = price.replace(",", "").replace("$", "").replace("/mo", "")
         if len(price) == 0:
             price = 'NA'
     return(price)
@@ -218,7 +232,7 @@ def get_card_info(soup_obj):
     # number of bathrooms, square footage, and sometimes price.
     try:
         card = soup_obj.find(
-            "span", {"class" : "zsg-photo-card-info"}).get_text().split(" · ")
+            "span", {"class" : "zsg-photo-card-info"}).get_text().split(u' \xb7 ')
     except (ValueError, AttributeError):
         card = "NA"
     if len(card) == 0 or card == 'null':
@@ -270,27 +284,38 @@ def get_bathrooms(list_obj):
 
 def get_days_on_market(soup_obj):
     try:
-        dom = soup_obj.find_all(
-            "span", {"class" : "zsg-photo-card-notification"})
-        dom = [n for n in dom if "illow" in n.get_text()]
-        if len(dom) > 0:
-            dom = dom[0].get_text().strip()
-            dom = int(dom.split(" ")[0])
+        # E.g. "4 hours ago"
+        dom_fresh = soup_obj.find_all(
+            "span", {"class" : "toz-fresh"})
+        if len(dom_fresh) > 0:
+            dom = dom_fresh[0].get_text()
+            if 'hours ago' in dom:
+                dom = round(float(dom.split(" ")[0]) / 24, 3)
         else:
-            dom = "NA"
+            dom = soup_obj.find_all(
+                "span", {"class" : "zsg-photo-card-notification"})
+            dom = [n for n in dom if "day" in n.get_text()]
+            if len(dom) > 0:
+                dom = dom[0].get_text().strip()
+                if dom == 'yesterday':
+                    dom = 0
+                else:
+                    dom = int(dom.split(" ")[0])
+            else:
+                dom = "NA"
     except (ValueError, AttributeError):
         dom = "NA"
     return(dom)
 
-def get_sale_type(soup_obj):
+def get_rental_type(soup_obj):
     try:
-        saletype = soup_obj.find(
+        rentaltype = soup_obj.find(
             "span", {"class" : "zsg-photo-card-status"}).get_text().strip()
     except (ValueError, AttributeError):
-        saletype = "NA"
-    if len(saletype) == 0 or saletype == 'null':
-        saletype = "NA"
-    return(saletype)
+        rentaltype = "NA"
+    if len(rentaltype) == 0 or rentaltype == 'null':
+        rentaltype = "NA"
+    return(rentaltype)
 
 def get_url(soup_obj):
     # Try to find url in the BeautifulSoup object.

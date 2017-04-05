@@ -37,30 +37,37 @@ from bs4 import BeautifulSoup
 # end up missing most of the results.
 # Param st_items can be either a list of zipcode strings, or a single zipcode 
 # string.
-st = zl.zipcodes_list(st_items = ["100", "770"])
+st = zl.zipcodes_list(st_items = ["94065", # Bair Island
+                                  "94070", # San Carlos
+                                  "94063", # RWC1
+                                  "94062", # Emerald Hills
+                                  "94061", # RWC2
+                                  "94027", # Atherton
+                                  "94025", # Menlo Park
+                                  "94301", # PA1
+                                  "94305", # Stanford
+                                  "94306", # PA2
+                                  "94304", # PA Hills
+                                  "94022", # Los Altos 1
+                                  "94028", # Portola Valley,
+                                  "94043", # MTV1
+                                  "94041", # MTV2
+                                  "94040", # MTV3
+                                  "94024"  # Los Altos 2
+                                  ])
+
+NUM_BEDS = 3
 
 # Initialize the webdriver.
-driver = zl.init_driver("C:/Users/username/chromedriver.exe")
+driver = zl.init_driver("/Users/edz/Documents/Projects/zillow/chromedriver")
 
-# Go to www.zillow.com/homes
-zl.navigate_to_website(driver, "http://www.zillow.com/homes")
+# Go to www.zillow.com/homes/for_rent/
+zl.navigate_to_website(driver, "http://www.zillow.com/homes/for_rent")
 
-# Click the "buy" button.
-zl.click_buy_button(driver)
-
-# Create 11 variables from the scrapped HTML data.
 # These variables will make up the final output dataframe.
-df = pd.DataFrame({'address' : [], 
-                   'bathrooms' : [], 
-                   'bedrooms' : [], 
-                   'city' : [], 
-                   'days_on_zillow' : [], 
-                   'price' : [], 
-                   'sale_type' : [], 
-                   'state' : [], 
-                   'sqft' : [], 
-                   'url' : [], 
-                   'zip' : []})
+df = pd.DataFrame(columns=['address', 'city', 'type', 'price', 'bedrooms',
+                           'bathrooms','sqft', 'days_on_zillow', 'url',
+                           'zip'])
 
 # Get total number of search terms.
 numSearchTerms = len(st)
@@ -70,14 +77,29 @@ for k in range(numSearchTerms):
     # Define search term (must be str object).
     search_term = st[k]
 
-    # Enter search term and execute search.
+    # Enter search term, filter, and execute search.
     if zl.enter_search_term(driver, search_term):
         print("Entering search term number " + str(k+1) + 
               " out of " + str(numSearchTerms))
     else:
-        print("Search term " + str(k+1) + 
+        print("Entering search term " + str(k+1) + 
               " failed, moving onto next search term\n***")
         continue
+
+    # Use this as a filter ahead of time, so that for the apartment complexes
+    # with non-standard card formatting, we can just pick the first
+    # (it comes in the form 2 <bed icon> $X+, 3 <bed icon> $Y+).
+    if zl.select_num_bed_filter(driver, NUM_BEDS):
+        print("Entering number of bedrooms filter ({})".format(3))
+    else:
+        print("Entering number of bedrooms at search term " + str(k+1) + 
+              " failed, moving onto next search term\n***")
+        continue
+
+    if zl.search(driver):
+      print("Actually searching...")
+    else:
+      print("Couldn't actually search :(")
     
     # Check to see if any results were returned from the search.
     # If there were none, move onto the next search.
@@ -95,42 +117,51 @@ for k in range(numSearchTerms):
     # Take the extracted HTML and split it up by individual home listings.
     listings = zl.get_listings(rawdata)
     
-    # For each home listing, extract the 11 variables that will populate that 
+    # For each home listing, extract the variables that will populate that 
     # specific observation within the output dataframe.
     for n in range(len(listings)):
         soup = BeautifulSoup(listings[n], "lxml")
         new_obs = []
-        
+
+        # TODO(Eddie): Deal with non-standard, apartment-complex formatting.
+        # # Check if this is an apartment complex (the card will be different).
+        # if (zl.is_apartment_complex(soup)):
+        #   pass
+        # else:
+        #   pass
         # List that contains number of beds, baths, and total sqft (and 
         # sometimes price as well).
         card_info = zl.get_card_info(soup)
         
         # Street Address
         new_obs.append(zl.get_street_address(soup))
-        
-        # Bathrooms
-        new_obs.append(zl.get_bathrooms(card_info))
-        
-        # Bedrooms
-        new_obs.append(zl.get_bedrooms(card_info))
-        
+
         # City
         new_obs.append(zl.get_city(soup))
-        
-        # Days on the Market/Zillow
-        new_obs.append(zl.get_days_on_market(soup))
+
+        # Type (House, Apartment, Condo, etc.)
+        new_obs.append(zl.get_rental_type(soup))
         
         # Price
         new_obs.append(zl.get_price(soup, card_info))
-        
-        # Sale Type (House for Sale, New Construction, Foreclosure, etc.)
-        new_obs.append(zl.get_sale_type(soup))
-        
+
+        # Bedrooms (only keep == 3, filter will return 3+)
+        num_bedrooms = zl.get_bedrooms(card_info)
+        if num_bedrooms != NUM_BEDS:
+          continue
+        new_obs.append(zl.get_bedrooms(card_info))
+
+        # Bathrooms (only keep >= 2)
+        num_bathrooms = zl.get_bathrooms(card_info)
+        if num_bathrooms < 2:
+          continue
+        new_obs.append(zl.get_bathrooms(card_info))
+       
         # Sqft
         new_obs.append(zl.get_sqft(card_info))
-        
-        # State
-        new_obs.append(zl.get_state(soup))
+
+        # Days on the Zillow
+        new_obs.append(zl.get_days_on_market(soup))
         
         # URL for each house listing
         new_obs.append(zl.get_url(soup))
@@ -146,10 +177,6 @@ for k in range(numSearchTerms):
 zl.close_connection(driver)
 
 # Write df to CSV.
-columns = ['address', 'city', 'state', 'zip', 'price', 'sqft', 'bedrooms', 
-           'bathrooms', 'days_on_zillow', 'sale_type', 'url']
-
-df = df[columns]
 dt = time.strftime("%Y-%m-%d") + "_" + time.strftime("%H%M%S")
 filename = str(dt) + ".csv"
-df.to_csv(filename, index = False)
+df.to_csv(filename, index=False, encoding='utf-8')
