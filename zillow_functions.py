@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Zillow scraper functions, these are sourced at the top of zillow_runfile.py
 
+import json
 import re as re
 import time
 import zipcode
@@ -10,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import Select
+from bs4 import Comment
 
 def zipcodes_list(st_items):
     # If st_items is a single zipcode string.
@@ -222,7 +223,7 @@ def get_price(soup_obj, list_obj):
         price = "NA"
     if price is not "NA":
         # Transformations to the price string.
-        price = price.replace(",", "").replace("$", "").replace("/mo", "")
+        price = price.replace(",", "").replace("$", "").replace("/mo", "").replace("+", "")
         if len(price) == 0:
             price = 'NA'
     return(price)
@@ -282,27 +283,22 @@ def get_bathrooms(list_obj):
         baths = "NA"
     return(baths)
 
-def get_days_on_market(soup_obj):
+def get_days_on_zillow(soup_obj):
     try:
-        # E.g. "4 hours ago"
-        dom_fresh = soup_obj.find_all(
-            "span", {"class" : "toz-fresh"})
-        if len(dom_fresh) > 0:
-            dom = dom_fresh[0].get_text()
+        dom = soup_obj.find_all(
+            "span", {"class" : "zsg-photo-card-notification"})
+        if len(dom) > 0:
+            dom = dom[0].get_text().strip()
+            # e.g. "4 hours ago"
             if 'hours ago' in dom:
                 dom = round(float(dom.split(" ")[0]) / 24, 3)
-        else:
-            dom = soup_obj.find_all(
-                "span", {"class" : "zsg-photo-card-notification"})
-            dom = [n for n in dom if "day" in n.get_text()]
-            if len(dom) > 0:
-                dom = dom[0].get_text().strip()
-                if dom == 'yesterday':
-                    dom = 0
-                else:
-                    dom = int(dom.split(" ")[0])
+            # e.g. "Updated yesterday"
+            elif 'yesterday' in dom:
+                dom = 0
             else:
-                dom = "NA"
+                dom = int(dom.split(" ")[0])
+        else:
+            dom = "NA"
     except (ValueError, AttributeError):
         dom = "NA"
     return(dom)
@@ -319,25 +315,130 @@ def get_rental_type(soup_obj):
 
 def get_url(soup_obj):
     # Try to find url in the BeautifulSoup object.
-    href = [n["href"] for n in soup_obj.find_all("a", href = True)]
-    url = [i for i in href if "homedetails" in i]
-    if len(url) > 0:
-        url = "http://www.zillow.com/homes/for_sale/" + url[0]
-    else:
-        # If that fails, contruct the url from the zpid of the listing.
-        url = [i for i in href if "zpid" in i and "avorite" not in i]
-        if len(url) > 0:
-            zpid = re.findall(r"\d{8,10}", href[0])
-            if zpid is not None and len(zpid) > 0:
-                url = 'http://www.zillow.com/homes/for_sale/' \
-                        + str(zpid[0]) \
-                        + '_zpid/any_days/globalrelevanceex_sort/29.759534,' \
-                        + '-95.335321,29.675003,-95.502863_rect/12_zm/'
-            else:
-                url = "NA"
-        else:
-            url = "NA"
-    return(url)
+    try:
+        link = soup_obj.find(
+            "a", {"class": ("zsg-photo-card-overlay-link")})
+    except (ValueError, AttributeError):
+        return("NA")
+    return "http://www.zillow.com" + link.get("href")
+
+def create_obs_from_standard(soup, num_beds):
+    new_obs = []
+    card_info = get_card_info(soup)
+        
+    # Street Address
+    new_obs.append(get_street_address(soup))
+
+    # City
+    new_obs.append(get_city(soup))
+
+    # Type (House, Apartment, Condo, etc.)
+    new_obs.append(get_rental_type(soup))
+    
+    # Price
+    new_obs.append(get_price(soup, card_info))
+
+    # Bedrooms (only keep == 3, filter will return 3+)
+    num_bedrooms = get_bedrooms(card_info)
+    if num_bedrooms != num_beds:
+        return None
+    new_obs.append(num_bedrooms)
+
+    # Bathrooms (only keep >= 2)
+    num_bathrooms = get_bathrooms(card_info)
+    if num_bathrooms < 2:
+        return None
+    new_obs.append(num_bathrooms)
+   
+    # Sqft
+    new_obs.append(get_sqft(card_info))
+
+    # Days on Zillow
+    new_obs.append(get_days_on_zillow(soup))
+    
+    # URL for each house listing
+    new_obs.append(get_url(soup))
+    
+    # Zipcode
+    new_obs.append(get_zipcode(soup))
+
+    return new_obs
+
+def is_apartment_complex(soup_obj, num_beds):
+    # Apartment complexes have something like 3 <bed-icon> $X+
+    # instead of the typical information in their card_info.
+    try:
+        card = soup_obj.find(
+            "span", {"class" : "zsg-photo-card-unit"}).get_text().split("$")
+    except (ValueError, AttributeError):
+        return False
+    # Let's also make sure that the first number of beds is the one we want.
+    assert num_beds == int(card[0])
+    return True
+
+def get_price_from_apartment_complex_card(list_obj):
+    # First element is # beds, second is the associated price.
+    return float(list_obj[1].replace(",", "").replace("+", "")) 
+
+def get_mini_bubble_info(soup_obj):
+    try:
+        minibubble = soup_obj.find(
+            "div", {"class" : "minibubble"})
+    except (ValueError, AttributeError):
+        return "NA"
+    # Process into a dictionary for return.
+    comments = minibubble.findAll(text=lambda text:isinstance(text, Comment))
+    return json.loads(comments[0].replace("<!--", "").replace("-->", ""))
+
+def create_obs_from_apartment_complex(soup, num_beds, zip_code):
+    new_obs = []
+    try:
+        card = soup.find(
+            "span", {"class" : "zsg-photo-card-unit"}).get_text().split("$")
+    except (ValueError, AttributeError):
+        card = "NA"
+        
+    # Street Address (same as standard)
+    address = get_street_address(soup)
+    new_obs.append(address)
+
+    # City -- can't retrieve this from HTML, just take the 2nd to last comma
+    # split.
+    new_obs.append(address.split(", ")[-2])
+
+    # We know this is an apartment complex.
+    new_obs.append("Apartment Complex")
+    
+    # Price
+    new_obs.append(get_price_from_apartment_complex_card(card))
+
+    # Bedrooms (must be num_beds)
+    new_obs.append(num_beds)
+
+    minibubble = get_mini_bubble_info(soup)
+
+    if minibubble == "NA":
+        return None
+
+    # Bathrooms (only keep >= 2)
+    num_bathrooms = minibubble["bath"]
+    if num_bathrooms < 2:
+        return None
+    new_obs.append(num_bathrooms)
+   
+    # Sqft
+    new_obs.append(minibubble["sqft"])
+
+    # Days on Zillow
+    new_obs.append(get_days_on_zillow(soup))
+    
+    # URL for each house listing
+    new_obs.append(get_url(soup))
+    
+    # Zipcode
+    new_obs.append(zip_code)
+
+    return new_obs
 
 def close_connection(driver):
     driver.quit()

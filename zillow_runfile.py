@@ -121,56 +121,16 @@ for k in range(numSearchTerms):
     # specific observation within the output dataframe.
     for n in range(len(listings)):
         soup = BeautifulSoup(listings[n], "lxml")
-        new_obs = []
 
-        # TODO(Eddie): Deal with non-standard, apartment-complex formatting.
-        # # Check if this is an apartment complex (the card will be different).
-        # if (zl.is_apartment_complex(soup)):
-        #   pass
-        # else:
-        #   pass
-        # List that contains number of beds, baths, and total sqft (and 
-        # sometimes price as well).
-        card_info = zl.get_card_info(soup)
-        
-        # Street Address
-        new_obs.append(zl.get_street_address(soup))
-
-        # City
-        new_obs.append(zl.get_city(soup))
-
-        # Type (House, Apartment, Condo, etc.)
-        new_obs.append(zl.get_rental_type(soup))
-        
-        # Price
-        new_obs.append(zl.get_price(soup, card_info))
-
-        # Bedrooms (only keep == 3, filter will return 3+)
-        num_bedrooms = zl.get_bedrooms(card_info)
-        if num_bedrooms != NUM_BEDS:
-          continue
-        new_obs.append(zl.get_bedrooms(card_info))
-
-        # Bathrooms (only keep >= 2)
-        num_bathrooms = zl.get_bathrooms(card_info)
-        if num_bathrooms < 2:
-          continue
-        new_obs.append(zl.get_bathrooms(card_info))
-       
-        # Sqft
-        new_obs.append(zl.get_sqft(card_info))
-
-        # Days on the Zillow
-        new_obs.append(zl.get_days_on_market(soup))
-        
-        # URL for each house listing
-        new_obs.append(zl.get_url(soup))
-        
-        # Zipcode
-        new_obs.append(zl.get_zipcode(soup))
+        if zl.is_apartment_complex(soup, NUM_BEDS):
+          print("Found apartment complex...")
+          new_obs = zl.create_obs_from_apartment_complex(soup, NUM_BEDS,
+                                                         search_term)
+        else:
+          new_obs = zl.create_obs_from_standard(soup, NUM_BEDS)
     
         # Append new_obs to df as a new observation
-        if len(new_obs) == len(df.columns):
+        if new_obs is not None and len(new_obs) == len(df.columns):
             df.loc[len(df.index)] = new_obs
 
 # Close the webdriver connection.

@@ -1,0 +1,126 @@
+address,city,type,price,bedrooms,bathrooms,sqft,days_on_zillow,url,zip
+560 Island Pl,Redwood City,House For Rent,6800,3.0,2.5,2390.0,34.0,http://www.zillow.com/homedetails/560-Island-Pl-Redwood-City-CA-94065/15617779_zpid/,94065
+217 Hartstene Dr,Redwood City,House For Rent,4800,3.0,2.5,1815.0,35.0,http://www.zillow.com/homedetails/217-Hartstene-Dr-Redwood-City-CA-94065/118175274_zpid/,94065
+3068 Kyne St W # 423824,San Mateo,Apartment For Rent,5225,3.0,2.0,1278.0,NA,http://www.zillow.com/homedetails/3068-Kyne-St-W-423824-San-Mateo-CA-94403/2096129773_zpid/,94403
+"100 Grand Ln, Foster City, CA",Foster City,Apartment Complex,5424.0,3.0,2.0,1388.0,0,http://www.zillow.com/b/one-hundred-grand-foster-city-ca-65fsHq/,94065
+"3204 Casa De Campo, San Mateo, CA",San Mateo,Apartment Complex,4054.0,3.0,2.0,950.0,0,http://www.zillow.com/b/bay-terrace-apartments-san-mateo-ca-5Xk5dF/,94065
+1 Plaza View Ln # 243,Foster City,Apartment For Rent,5344,3.0,2.0,1511.0,0,http://www.zillow.com/homedetails/1-Plaza-View-Ln-243-Foster-City-CA-94404/2094752611_zpid/,94404
+1997 Vista Del Mar,San Mateo,Condo For Rent,4150,3.0,2.5,1350.0,1,http://www.zillow.com/homedetails/1997-Vista-Del-Mar-San-Mateo-CA-94404/2094744364_zpid/,94404
+"649 Old County Rd, Belmont, CA",Belmont,Apartment Complex,3753.0,3.0,2.0,1150.0,NA,http://www.zillow.com/b/madison-belmont-belmont-ca-5XjPzL/,94065
+Howard Ave,San Carlos,House For Rent,6500,3.0,2.0,1700.0,2,http://www.zillow.com/homedetails/Howard-Ave-San-Carlos-CA-94070/2095449469_zpid/,94070
+2750 Melendy Dr APT 10,San Carlos,Apartment For Rent,3500,3.0,2.0,1200.0,5,http://www.zillow.com/homedetails/2750-Melendy-Dr-APT-10-San-Carlos-CA-94070/2094783389_zpid/,94070
+233 Ruby Ave,San Carlos,House For Rent,4500,3.0,2.0,1310.0,7,http://www.zillow.com/homedetails/233-Ruby-Ave-San-Carlos-CA-94070/15560748_zpid/,94070
+"1 Blu Harbor Blvd, Redwood City, CA",Redwood City,Apartment Complex,5350.0,3.0,2.0,1428.0,0,http://www.zillow.com/b/blu-harbor-redwood-city-ca-B6rGRV/,94063
+675 Bradford St # 3A20,Redwood City,Apartment For Rent,5599,3.0,2.0,1481.0,0,http://www.zillow.com/homedetails/675-Bradford-St-3A20-Redwood-City-CA-94063/2097495171_zpid/,94063
+734 Brewster Ave,Redwood City,House For Rent,4100,3.0,2.0,1260.0,7,http://www.zillow.com/homedetails/734-Brewster-Ave-Redwood-City-CA-94063/15564514_zpid/,94063
+209 Moresby Ln,Redwood City,Townhouse For Rent,4795,3.0,2.5,1405.0,11,http://www.zillow.com/homedetails/209-Moresby-Ln-Redwood-City-CA-94063/15639073_zpid/,94063
+2 Friendly Ct,Redwood City,House For Rent,4000,3.0,2.0,NA,16,http://www.zillow.com/homedetails/2-Friendly-Ct-Redwood-City-CA-94063/15568297_zpid/,94063
+2031 Whipple Ave,Redwood City,House For Rent,6988,3.0,2.5,2360.0,3,http://www.zillow.com/homedetails/2031-Whipple-Ave-Redwood-City-CA-94062/15563861_zpid/,94062
+145 Ware Rd,Woodside,House For Rent,6700,3.0,2.0,2400.0,7,http://www.zillow.com/homedetails/145-Ware-Rd-Woodside-CA-94062/15589327_zpid/,94062
+441 Sapphire St,Redwood City,House For Rent,4000,3.0,2.0,1410.0,22,http://www.zillow.com/homedetails/441-Sapphire-St-Redwood-City-CA-94062/15573355_zpid/,94062
+1607 Redwood Ave,Redwood City,House For Rent,3950,3.0,2.0,1200.0,15,http://www.zillow.com/homedetails/1607-Redwood-Ave-Redwood-City-CA-94061/2094896863_zpid/,94061
+1430 Gordon St APT K,Redwood City,Apartment For Rent,3950,3.0,2.5,1430.0,122,http://www.zillow.com/homedetails/1430-Gordon-St-APT-K-Redwood-City-CA-94061/15578200_zpid/,94061
+"1 Blu Harbor Blvd, Redwood City, CA",Redwood City,Apartment Complex,5350.0,3.0,2.0,1428,0,http://www.zillow.com/b/blu-harbor-redwood-city-ca-B6rGRV/,94061
+675 Bradford St # 3A20,Redwood City,Apartment For Rent,5599,3.0,2.0,1481.0,0,http://www.zillow.com/homedetails/675-Bradford-St-3A20-Redwood-City-CA-94063/2097495171_zpid/,94063
+Howard Ave,San Carlos,House For Rent,6500,3.0,2.0,1700.0,2,http://www.zillow.com/homedetails/Howard-Ave-San-Carlos-CA-94070/2095449469_zpid/,94070
+2031 Whipple Ave,Redwood City,House For Rent,6988,3.0,2.5,2360.0,3,http://www.zillow.com/homedetails/2031-Whipple-Ave-Redwood-City-CA-94062/15563861_zpid/,94062
+2750 Melendy Dr APT 10,San Carlos,Apartment For Rent,3500,3.0,2.0,1200.0,5,http://www.zillow.com/homedetails/2750-Melendy-Dr-APT-10-San-Carlos-CA-94070/2094783389_zpid/,94070
+"1250 Hoover St, Menlo Park, CA",Menlo Park,Apartment Complex,6700.0,3.0,2.5,1550,0,"http://www.zillow.com/b/1250-Hoover-St-Menlo-Park-CA/37.453974,-122.185933_ll/",94025
+"777 Hamilton Ave, Menlo Park, CA",Menlo Park,Apartment Complex,4989.0,3.0,3.0,1375,0,http://www.zillow.com/b/777-hamilton-menlo-park-ca-9NHZ93/,94025
+350 Sharon Park Dr # 1667521,Menlo Park,Apartment For Rent,5700,3.0,2.0,1466.0,0,http://www.zillow.com/homedetails/350-Sharon-Park-Dr-1667521-Menlo-Park-CA-94025/2099740582_zpid/,94025
+3645 Haven Ave # 642767,Menlo Park,Apartment For Rent,4875,3.0,2.0,1249.0,NA,http://www.zillow.com/homedetails/3645-Haven-Ave-642767-Menlo-Park-CA-94025/2096336995_zpid/,94025
+626 Sand Hill Cir,Menlo Park,Townhouse For Rent,6500,3.0,2.5,2280.0,2,http://www.zillow.com/homedetails/626-Sand-Hill-Cir-Menlo-Park-CA-94025/15599947_zpid/,94025
+1056 Greenwood Dr,Menlo Park,House For Rent,6300,3.0,2.0,1400.0,2,http://www.zillow.com/homedetails/1056-Greenwood-Dr-Menlo-Park-CA-94025/15568993_zpid/,94025
+1130 Sevier Ave,Menlo Park,House For Rent,3800,3.0,2.0,1400.0,8,http://www.zillow.com/homedetails/1130-Sevier-Ave-Menlo-Park-CA-94025/111436166_zpid/,94025
+915 Christopher Way,Menlo Park,House For Rent,5000,3.0,2.0,1256.0,8,http://www.zillow.com/homedetails/915-Christopher-Way-Menlo-Park-CA-94025/15580493_zpid/,94025
+617 Partridge Ave,Menlo Park,House For Rent,5395,3.0,2.0,1820.0,9,http://www.zillow.com/homedetails/617-Partridge-Ave-Menlo-Park-CA-94025/15596544_zpid/,94025
+15 Homer Ln,Menlo Park,House For Rent,4999,3.0,3.0,1600.0,10,http://www.zillow.com/homedetails/15-Homer-Ln-Menlo-Park-CA-94025/15599568_zpid/,94025
+484 Oconnor St,Menlo Park,House For Rent,5900,3.0,2.0,1610.0,11,http://www.zillow.com/homedetails/484-Oconnor-St-Menlo-Park-CA-94025/15587456_zpid/,94025
+1070 Pine St,Menlo Park,House For Rent,5980,3.0,2.0,1800.0,15,http://www.zillow.com/homedetails/1070-Pine-St-Menlo-Park-CA-94025/15581373_zpid/,94025
+2109 Camino De Los Robles,Menlo Park,House For Rent,4400,3.0,2.0,1200.0,20,http://www.zillow.com/homedetails/2109-Camino-De-Los-Robles-Menlo-Park-CA-94025/15598291_zpid/,94025
+690 Sharon Park Dr APT 15,Menlo Park,Apartment For Rent,4695,3.0,2.0,1288.0,27,http://www.zillow.com/homedetails/690-Sharon-Park-Dr-APT-15-Menlo-Park-CA-94025/2095020180_zpid/,94025
+2331 Warner Range Ave,Menlo Park,House For Rent,9950,3.0,2.0,2340.0,27,http://www.zillow.com/homedetails/2331-Warner-Range-Ave-Menlo-Park-CA-94025/15599331_zpid/,94025
+675 Sharon Park Dr,Menlo Park,Condo For Rent,4000,3.0,2.0,1266.0,31,http://www.zillow.com/homedetails/675-Sharon-Park-Dr-Menlo-Park-CA-94025/2127079097_zpid/,94025
+743 15th Ave,Menlo Park,House For Rent,4900,3.0,2.0,1180.0,32,http://www.zillow.com/homedetails/743-15th-Ave-Menlo-Park-CA-94025/15579385_zpid/,94025
+443 Encina Ave,Menlo Park,House For Rent,6750,3.0,2.5,2030.0,41,http://www.zillow.com/homedetails/443-Encina-Ave-Menlo-Park-CA-94025/15579831_zpid/,94025
+327 6th Ave,Menlo Park,House For Rent,4600,3.0,2.5,1583.0,49,http://www.zillow.com/homedetails/327-6th-Ave-Menlo-Park-CA-94025/82959031_zpid/,94025
+391 Hedge Rd,Menlo Park,House For Rent,6900,3.0,2.5,1738.0,62,http://www.zillow.com/homedetails/391-Hedge-Rd-Menlo-Park-CA-94025/15569027_zpid/,94025
+1902 Valparaiso Ave,Menlo Park,House For Rent,5800,3.0,2.0,2000.0,75,http://www.zillow.com/homedetails/1902-Valparaiso-Ave-Menlo-Park-CA-94025/2104050505_zpid/,94025
+965 Monte Rosa Dr,Menlo Park,House For Rent,6500,3.0,2.0,1560.0,139,http://www.zillow.com/homedetails/965-Monte-Rosa-Dr-Menlo-Park-CA-94025/15599268_zpid/,94025
+1945 Byron St,Palo Alto,House For Rent,7000,3.0,2.0,1523.0,0.292,http://www.zillow.com/homedetails/1945-Byron-St-Palo-Alto-CA-94301/19496273_zpid/,94301
+813 Melville Ave,Palo Alto,House For Rent,9495,3.0,3.0,2044.0,1,http://www.zillow.com/homedetails/813-Melville-Ave-Palo-Alto-CA-94301/19468405_zpid/,94301
+"501 Forest Ave, Palo Alto, CA",Palo Alto,Apartment Complex,9717.0,3.0,2.0,1962,0,http://www.zillow.com/b/the-marc-palo-alto-palo-alto-ca-5XjLN5/,94301
+1665 Middlefield Rd,Palo Alto,House For Rent,6800,3.0,3.0,1852.0,8,http://www.zillow.com/homedetails/1665-Middlefield-Rd-Palo-Alto-CA-94301/19469970_zpid/,94301
+Rickeys Way,Palo Alto,Apartment For Rent,6500,3.0,2.5,1977.0,5,http://www.zillow.com/homedetails/Rickeys-Way-Palo-Alto-CA-94306/2094785763_zpid/,94306
+Barron Ave,Palo Alto,House For Rent,4995,3.0,2.0,1398.0,26,http://www.zillow.com/homedetails/Barron-Ave-Palo-Alto-CA-94306/2095008354_zpid/,94306
+4173 El Camino Real APT 24,Palo Alto,Townhouse For Rent,5200,3.0,3.0,1730.0,58,http://www.zillow.com/homedetails/4173-El-Camino-Real-APT-24-Palo-Alto-CA-94306/19504478_zpid/,94306
+339 Manzanita Ave,Palo Alto,House For Rent,6000,3.0,2.0,1160.0,64,http://www.zillow.com/homedetails/339-Manzanita-Ave-Palo-Alto-CA-94306/19497513_zpid/,94306
+4206 Pomona Ave # 4206,Palo Alto,Apartment For Rent,5850,3.0,2.0,NA,71,http://www.zillow.com/homedetails/4206-Pomona-Ave-4206-Palo-Alto-CA-94306/2095566235_zpid/,94306
+1945 Byron St,Palo Alto,House For Rent,7000,3.0,2.0,1523.0,0.292,http://www.zillow.com/homedetails/1945-Byron-St-Palo-Alto-CA-94301/19496273_zpid/,94301
+101 Pecora Way,Menlo Park,House For Rent,6500,3.0,2.0,2280.0,0.833,http://www.zillow.com/homedetails/101-Pecora-Way-Menlo-Park-CA-94028/15601799_zpid/,94028
+813 Melville Ave,Palo Alto,House For Rent,9495,3.0,3.0,2044.0,1,http://www.zillow.com/homedetails/813-Melville-Ave-Palo-Alto-CA-94301/19468405_zpid/,94301
+"501 Forest Ave, Palo Alto, CA",Palo Alto,Apartment Complex,9717.0,3.0,2.0,1962,0,http://www.zillow.com/b/the-marc-palo-alto-palo-alto-ca-5XjLN5/,94304
+"1250 Hoover St, Menlo Park, CA",Menlo Park,Apartment Complex,6700.0,3.0,2.5,1550,0,"http://www.zillow.com/b/1250-Hoover-St-Menlo-Park-CA/37.453974,-122.185933_ll/",94304
+350 Sharon Park Dr # 1667521,Menlo Park,Apartment For Rent,5700,3.0,2.0,1466.0,0,http://www.zillow.com/homedetails/350-Sharon-Park-Dr-1667521-Menlo-Park-CA-94025/2099740582_zpid/,94025
+33 3rd St,Los Altos,Townhouse For Rent,5388,3.0,2.5,2000.0,15,http://www.zillow.com/homedetails/33-3rd-St-Los-Altos-CA-94022/2094893504_zpid/,94022
+36 Lyell St,Los Altos,Condo For Rent,5550,3.0,2.5,1396.0,26,http://www.zillow.com/homedetails/36-Lyell-St-Los-Altos-CA-94022/19526084_zpid/,94022
+454 Orange Ave,Los Altos,House For Rent,8200,3.0,2.0,1669.0,40,http://www.zillow.com/homedetails/454-Orange-Ave-Los-Altos-CA-94022/19526927_zpid/,94022
+Hawthorne Ave,Los Altos,Apartment For Rent,9500,3.0,3.0,2100.0,273,http://www.zillow.com/homedetails/Hawthorne-Ave-Los-Altos-CA-94022/2101129099_zpid/,94022
+101 Pecora Way,Menlo Park,House For Rent,6500,3.0,2.0,2280.0,0.833,http://www.zillow.com/homedetails/101-Pecora-Way-Menlo-Park-CA-94028/15601799_zpid/,94028
+Willowbrook Dr,Portola Valley,House For Rent,7850,3.0,2.5,2470.0,5,http://www.zillow.com/homedetails/Willowbrook-Dr-Portola-Valley-CA-94028/2094781238_zpid/,94028
+129 Santa Maria Ave,Portola Valley,House For Rent,8850,3.0,3.5,3900.0,21,http://www.zillow.com/homedetails/129-Santa-Maria-Ave-Portola-Valley-CA-94028/15600833_zpid/,94028
+111 Evandale Ave,Mountain View,Townhouse For Rent,5200,3.0,2.5,1611.0,0.333,http://www.zillow.com/homedetails/111-Evandale-Ave-Mountain-View-CA-94043/19516996_zpid/,94043
+100 N Whisman Rd # 324408,Mountain View,Apartment For Rent,4390,3.0,2.0,1125.0,NA,http://www.zillow.com/homedetails/100-N-Whisman-Rd-324408-Mountain-View-CA-94043/2103388582_zpid/,94043
+"1 Forest Glen St, Mountain View, CA",Mountain View,Apartment Complex,4938.0,3.0,2.0,1225,NA,http://www.zillow.com/b/forest-glen-mountain-view-ca-5js8dt/,94043
+"300 Granada Dr, Mountain View, CA",Mountain View,Apartment Complex,4500.0,3.0,2.0,1127,NA,http://www.zillow.com/b/300-granada-mountain-view-ca-5Xxtg6/,94043
+284 Elmwood St,Mountain View,House For Rent,3500,3.0,2.0,1200.0,0.917,http://www.zillow.com/homedetails/284-Elmwood-St-Mountain-View-CA-94043/19513420_zpid/,94043
+128 Ada Ave APT 12,Mountain View,Townhouse For Rent,4600,3.0,2.5,1625.0,1,http://www.zillow.com/homedetails/128-Ada-Ave-APT-12-Mountain-View-CA-94043/19518048_zpid/,94043
+1947 Colony St,Mountain View,Townhouse For Rent,4595,3.0,3.0,1265.0,4,http://www.zillow.com/homedetails/1947-Colony-St-Mountain-View-CA-94043/2094773386_zpid/,94043
+1924 Hackett Ave,Mountain View,House For Rent,4650,3.0,2.0,1200.0,5,http://www.zillow.com/homedetails/1924-Hackett-Ave-Mountain-View-CA-94043/2097958220_zpid/,94043
+1874 San Luis Ave,Mountain View,House For Rent,4100,3.0,2.0,1311.0,5,http://www.zillow.com/homedetails/1874-San-Luis-Ave-Mountain-View-CA-94043/19511405_zpid/,94043
+Dell Ave,Mountain View,House For Rent,4995,3.0,2.0,1488.0,15,http://www.zillow.com/homedetails/Dell-Ave-Mountain-View-CA-94043/2107186970_zpid/,94043
+2532 Betlo Ave,Mountain View,House For Rent,4500,3.0,2.0,1206.0,15,http://www.zillow.com/homedetails/2532-Betlo-Ave-Mountain-View-CA-94043/19508176_zpid/,94043
+920 San Marcos Cir,Mountain View,House For Rent,4200,3.0,2.0,1800.0,19,http://www.zillow.com/homedetails/920-San-Marcos-Cir-Mountain-View-CA-94043/19511542_zpid/,94043
+120 Kittoe Dr # DUPLEX,Mountain View,Apartment For Rent,3975,3.0,2.0,NA,20,http://www.zillow.com/homedetails/120-Kittoe-Dr-DUPLEX-Mountain-View-CA-94043/2094949624_zpid/,94043
+215 Cypress Point Dr,Mountain View,Condo For Rent,3795,3.0,2.0,1526.0,21,http://www.zillow.com/homedetails/215-Cypress-Point-Dr-Mountain-View-CA-94043/19516543_zpid/,94043
+455 Bedford Loop,Mountain View,Townhouse For Rent,5100,3.0,3.5,1843.0,24,http://www.zillow.com/homedetails/455-Bedford-Loop-Mountain-View-CA-94043/82954330_zpid/,94043
+2503 Mardell Way,Mountain View,House For Rent,4200,3.0,2.0,1140.0,30,http://www.zillow.com/homedetails/2503-Mardell-Way-Mountain-View-CA-94043/19507795_zpid/,94043
+1075 Space Park Way SPC 237,Mountain View,Home For Rent,3099,3.0,2.0,1404.0,41,http://www.zillow.com/homedetails/1075-Space-Park-Way-SPC-237-Mountain-View-CA-94043/2095180323_zpid/,94043
+Stockwell Dr,Mountain View,Townhouse For Rent,4300,3.0,2.5,1388.0,43,http://www.zillow.com/homedetails/Stockwell-Dr-Mountain-View-CA-94043/2095207267_zpid/,94043
+227 Ada Ave APT B,Mountain View,Townhouse For Rent,4000,3.0,2.5,1460.0,47,http://www.zillow.com/homedetails/227-Ada-Ave-APT-B-Mountain-View-CA-94043/19518244_zpid/,94043
+851 Avery Dr,Mountain View,Townhouse For Rent,5500,3.0,2.5,1700.0,53,http://www.zillow.com/homedetails/851-Avery-Dr-Mountain-View-CA-94043/94697353_zpid/,94043
+822 Whipple Cir,Mountain View,House For Rent,4338,3.0,2.5,1776.0,72,http://www.zillow.com/homedetails/822-Whipple-Cir-Mountain-View-CA-94043/2095575442_zpid/,94043
+335 Wescoat Ct,Mountain View,Townhouse For Rent,4338,3.0,2.5,1776.0,72,http://www.zillow.com/homedetails/335-Wescoat-Ct-Mountain-View-CA-94043/2095575821_zpid/,94043
+330 Wescoat Ct,Mountain View,House For Rent,4338,3.0,2.5,1680.0,72,http://www.zillow.com/homedetails/330-Wescoat-Ct-Mountain-View-CA-94043/2095575915_zpid/,94043
+322 Wescoat Ct,Mountain View,Townhouse For Rent,4338,3.0,2.5,1680.0,72,http://www.zillow.com/homedetails/322-Wescoat-Ct-Mountain-View-CA-94043/2095576002_zpid/,94043
+405 Stewart Dr,Mountain View,House For Rent,4209,3.0,2.5,1680.0,72,http://www.zillow.com/homedetails/405-Stewart-Dr-Mountain-View-CA-94043/2095576060_zpid/,94043
+228 Stewart Dr,Mountain View,Townhouse For Rent,4209,3.0,2.5,1631.0,72,http://www.zillow.com/homedetails/228-Stewart-Dr-Mountain-View-CA-94043/2095576262_zpid/,94043
+515 Shenandoah Ct,Mountain View,House For Rent,4338,3.0,2.5,1760.0,72,http://www.zillow.com/homedetails/515-Shenandoah-Ct-Mountain-View-CA-94043/2095576658_zpid/,94043
+320 Wescoat Ct,Mountain View,House For Rent,4338,3.0,2.0,1760.0,72,http://www.zillow.com/homedetails/320-Wescoat-Ct-Mountain-View-CA-94043/2095577083_zpid/,94043
+Rock St,Mountain View,Apartment For Rent,7350,3.0,2.0,1650.0,88,http://www.zillow.com/homedetails/Rock-St-Mountain-View-CA-94043/2095771094_zpid/,94043
+Rock St,Mountain View,Condo For Rent,7395,3.0,2.0,1650.0,300,http://www.zillow.com/homedetails/Rock-St-Mountain-View-CA-94043/2102897803_zpid/,94043
+141 Frederick Ct,Mountain View,Townhouse For Rent,4995,3.0,2.5,1288.0,433,http://www.zillow.com/homedetails/141-Frederick-Ct-Mountain-View-CA-94043/51073584_zpid/,94043
+600 Rainbow Dr APT 157,Mountain View,Apartment For Rent,3816,3.0,2.0,1325.0,NA,http://www.zillow.com/homedetails/600-Rainbow-Dr-APT-157-Mountain-View-CA-94041/19519053_zpid/,94041
+515 Front Ln,Mountain View,House For Rent,5150,3.0,2.5,1647.0,6,http://www.zillow.com/homedetails/515-Front-Ln-Mountain-View-CA-94041/19515291_zpid/,94041
+171 Gary Ct,Mountain View,House For Rent,4600,3.0,2.0,1540.0,19,http://www.zillow.com/homedetails/171-Gary-Ct-Mountain-View-CA-94041/19515538_zpid/,94041
+34 Church St,Mountain View,House For Rent,5200,3.0,2.0,1500.0,20,http://www.zillow.com/homedetails/34-Church-St-Mountain-View-CA-94041/2100043725_zpid/,94041
+221 W Evelyn Ave,Mountain View,Townhouse For Rent,4890,3.0,3.5,1704.0,31,http://www.zillow.com/homedetails/221-W-Evelyn-Ave-Mountain-View-CA-94041/121041844_zpid/,94041
+108 Bryant St APT 22,Mountain View,Condo For Rent,4999,3.0,2.5,1370.0,41,http://www.zillow.com/homedetails/108-Bryant-St-APT-22-Mountain-View-CA-94041/54770315_zpid/,94041
+493 Magritte Way,Mountain View,Townhouse For Rent,4940,3.0,3.5,1637.0,67,http://www.zillow.com/homedetails/493-Magritte-Way-Mountain-View-CA-94041/94696743_zpid/,94041
+563 Alice Ave,Mountain View,House For Rent,4299,3.0,2.5,2000.0,100,http://www.zillow.com/homedetails/563-Alice-Ave-Mountain-View-CA-94041/19518865_zpid/,94041
+818 Devoto St,Mountain View,House For Rent,4750,3.0,2.0,1850.0,336,http://www.zillow.com/homedetails/818-Devoto-St-Mountain-View-CA-94041/19519244_zpid/,94041
+49 Showers Dr,Mountain View,Townhouse For Rent,4300,3.0,2.5,1487.0,0.417,http://www.zillow.com/homedetails/49-Showers-Dr-Mountain-View-CA-94040/2104302077_zpid/,94040
+Pacchetti Way,Mountain View,Townhouse For Rent,4300,3.0,3.0,1421.0,0.417,http://www.zillow.com/homedetails/Pacchetti-Way-Mountain-View-CA-94040/2099924308_zpid/,94040
+2043 W El Camino Real # HRNPGHGNP,Mountain View,Apartment For Rent,3995,3.0,2.0,1240.0,0,http://www.zillow.com/homedetails/2043-W-El-Camino-Real-HRNPGHGNP-Mountain-View-CA-94040/2096437280_zpid/,94040
+255 S Rengstorff Ave APT 46,Mountain View,Condo For Rent,3488,3.0,2.0,1292.0,2,http://www.zillow.com/homedetails/255-S-Rengstorff-Ave-APT-46-Mountain-View-CA-94040/19514560_zpid/,94040
+49 Showers Dr APT L470,Mountain View,Townhouse For Rent,4350,3.0,2.5,1526.0,7,http://www.zillow.com/homedetails/49-Showers-Dr-APT-L470-Mountain-View-CA-94040/19509702_zpid/,94040
+1511 Miramonte Ave,Mountain View,House For Rent,4500,3.0,2.0,1178.0,7,http://www.zillow.com/homedetails/1511-Miramonte-Ave-Mountain-View-CA-94040/19532975_zpid/,94040
+1056 Petie Way,Mountain View,House For Rent,5950,3.0,2.0,1324.0,10,http://www.zillow.com/homedetails/1056-Petie-Way-Mountain-View-CA-94040/19532790_zpid/,94040
+191 E El Camino Real SPC 126,Mountain View,Home For Rent,3295,3.0,2.0,1344.0,14,http://www.zillow.com/homedetails/191-E-El-Camino-Real-SPC-126-Mountain-View-CA-94040/2094879895_zpid/,94040
+191 E El Camino Real SPC 159,Mountain View,Home For Rent,3395,3.0,2.0,1000.0,16,http://www.zillow.com/homedetails/191-E-El-Camino-Real-SPC-159-Mountain-View-CA-94040/2094912548_zpid/,94040
+160 Montelena Ct,Mountain View,Townhouse For Rent,4600,3.0,3.0,1796.0,41,http://www.zillow.com/homedetails/160-Montelena-Ct-Mountain-View-CA-94040/19510964_zpid/,94040
+1449 Topar Ave,Los Altos,House For Rent,5995,3.0,2.0,1600.0,1,http://www.zillow.com/homedetails/1449-Topar-Ave-Los-Altos-CA-94024/19627941_zpid/,94024
+590 Deodara Dr,Los Altos,Apartment For Rent,1500,3.0,2.0,1946.0,2,http://www.zillow.com/homedetails/590-Deodara-Dr-Los-Altos-CA-94024/19629731_zpid/,94024
+1922 Annette Ln,Los Altos,House For Rent,5950,3.0,2.5,1740.0,30,http://www.zillow.com/homedetails/1922-Annette-Ln-Los-Altos-CA-94024/19620913_zpid/,94024
+Edge Ln,Los Altos,Apartment For Rent,6875,3.0,2.0,2500.0,37,http://www.zillow.com/homedetails/Edge-Ln-Los-Altos-CA-94024/2095151538_zpid/,94024
+52 Woods Ln,Los Altos,Townhouse For Rent,5800,3.0,2.0,1785.0,41,http://www.zillow.com/homedetails/52-Woods-Ln-Los-Altos-CA-94024/19631417_zpid/,94024
